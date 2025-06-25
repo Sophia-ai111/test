@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>John Doe | Frontend Developer</title>
+    <meta name="description" content="Portfolio website of John Doe, a passionate frontend developer creating beautiful and functional web experiences.">
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome -->
+    <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code&family=Inter:wght@300;400;500;600;700&family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind Config -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#1E3A8A',
+                        secondary: '#3B82F6',
+                        dark: '#111827',
+                        'dark-gray': '#4B5563',
+                    },
+                    fontFamily: {
+                        montserrat: ['Montserrat', 'sans-serif'],
+                        inter: ['Inter', 'sans-serif'],
+                        code: ['"Fira Code"', 'monospace'],
+                    },
+                }
+            }
+        }
+    </script>
+    
+    <!-- Custom Styles -->
+    <style type="text/tailwindcss">
+        @layer utilities {
+            .content-auto {
+                content-visibility: auto;
+            }
+            .text-gradient {
+                background-clip: text;
+                -webkit-background-clip: text;
+                color: transparent;
+            }
+            .backdrop-blur {
+                backdrop-filter: blur(8px);
+            }
+            .bg-glass {
+                background-color: rgba(255, 255, 255, 0.7);
+            }
+        }
+    </style>
+</head>
+<body class="font-inter text-dark bg-white">
+    <!-- Navigation -->
+    <header id="navbar" class="fixed w-full top-0 z-50 transition-all duration-300">
+        <nav class="container mx-auto px-4 py-4 flex items-center justify-between bg-glass backdrop-blur">
+            <a href="#" class="flex items-center">
+                <span class="text-primary font-montserrat font-bold text-2xl">JD</span>
+            </a>
+            
+            <!-- Desktop Menu -->
+            <ul class="hidden md:flex space-x-8">
+                <li><a href="#hero" class="text-dark hover:text-secondary transition-colors font-medium">Home</a></li>
+                <li><a href="#skills" class="text-dark hover:text-secondary transition-colors font-medium">Skills</a></li>
+                <li><a href="#projects" class="text-dark hover:text-secondary transition-colors font-medium">Projects</a></li>
+                <li><a href="#blog" class="text-dark hover:text-secondary transition-colors font-medium">Blog</a></li>
+                <li><a href="#contact" class="text-dark hover:text-secondary transition-colors font-medium">Contact</a></li>
+            </ul>
+            
+            <!-- Mobile Menu Button -->
+            <button id="menuBtn" class="md:hidden text-dark hover:text-secondary focus:outline-none">
+                <i class="fa fa-bars text-xl"></i>
+            </button>
+        </nav>
+        
+        <!-- Mobile Menu -->
+        <div id="mobileMenu" class="hidden md:hidden bg-white shadow-lg absolute w-full">
+            <ul class="container mx-auto px-4 py-4 space-y-4">
+                <li><a href="#hero" class="block text-dark hover:text-secondary transition-colors py-2">Home</a></li>
+                <li><a href="#skills" class="block text-dark hover:text-secondary transition-colors py-2">Skills</a></li>
+                <li><a href="#projects" class="block text-dark hover:text-secondary transition-colors py-2">Projects</a></li>
+                <li><a href="#blog" class="block text-dark hover:text-secondary transition-colors py-2">Blog</a></li>
+                <li><a href="#contact" class="block text-dark hover:text-secondary transition-colors py-2">Contact</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="hero" class="min-h-screen flex items-center bg-gradient-to-br from-primary/5 to-secondary/10">
+        <div class="container mx-auto px-4 py-20 md:py-0 flex flex-col md:flex-row items-center">
+            <div class="md:w-1/2 text-center md:text-left mb-10 md:mb-0">
+                <h1 class="font-montserrat font-bold text-[clamp(2.5rem,5vw,4rem)] leading-tight mb-4">
+                    Hello, I'm <span class="text-primary">John Doe</span>
+                </h1>
+                <h2 class="font-montserrat text-[clamp(1.5rem,3vw,2rem)] text-dark-gray mb-8">
+                    Frontend Developer Crafting Digital Experiences
+                </h2>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
+                    <a href="#projects" class="bg-primary hover:bg-primary/90 text-white font-medium py-3 px-8 rounded-lg transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-primary/30">
+                        View My Work
+                    </a>
+                    <a href="#contact" class="bg-white hover:bg-gray-100 text-primary border border-primary font-medium py-3 px-8 rounded-lg transition-all duration-300 transform hover:scale-105">
+                        Get In Touch
+                    </a>
+                </div>
+            </div>
+            <div class="md:w-1/2 flex justify-center">
+                <div class="relative w-full max-w-md">
+                    <div class="bg-dark rounded-xl shadow-2xl overflow-hidden">
+                        <div class="bg-dark-gray/30 p-3 flex items-center">
+                            <div class="flex space-x-2">
+                                <div class="w-3 h-3 rounded-full bg-red-500"></div>
+                                <div class="w-3 h-3 rounded-full bg-yellow-500"></div>
+                                <div class="w-3 h-3 rounded-full bg-green-500"></div>
+                            </div>
+                            <div class="ml-4 text-white text-sm font-code">index.html</div>
+                        </div>
+                        <div class="p-4 text-white font-code text-sm">
+                            <pre class="text-left"><span class="text-blue-400">&lt;html</span> <span class="text-green-400">lang</span><span class="text-blue-400">="en"&gt;</span>
+  <span class="text-blue-400">&lt;head&gt;</span>
+    <span class="text-blue-400">&lt;title&gt;</span>John Doe | Frontend Developer<span class="text-blue-400">&lt;/title&gt;</span>
+    <span class="text-blue-400">&lt;meta</span> <span class="text-green-400">name</span><span class="text-blue-400">="viewport"</span> <span class="text-green-400">content</span><span class="text-blue-400">="width=device-width, initial-scale=1.0"&gt;</span>
+    <span class="text-blue-400">&lt;!-- Tailwind CSS --&gt;</span>
+    <span class="text-blue-400">&lt;script</span> <span class="text-green-400">src</span><span class="text-blue-400">="https://cdn.tailwindcss.com"&gt;&lt;/script&gt;</span>
+  <span class="text-blue-400">&lt;/head&gt;</span>
+  <span class="text-blue-400">&lt;body&gt;</span>
+    <span class="text-blue-400">&lt;!-- Hero Section --&gt;</span>
+    <span class="text-blue-400">&lt;section</span> <span class="text-green-400">class</span><span class="text-blue-400">="hero"&gt;</span>
+      <span class="text-blue-400">&lt;h1&gt;</span>Hello, I'm John Doe<span class="text-blue-400">&lt;/h1&gt;</span>
+      <span class="text-blue-400">&lt;p&gt;</span>Frontend Developer<span class="text-blue-400">&lt;/p&gt;</span>
+    <span class="text-blue-400">&lt;/section&gt;</span>
+  <span class="text-blue-400">&lt;/body&gt;</span>
+<span class="text-blue-400">&lt;/html&gt;</span></pre>
+                        </div>
+                    </div>
+                    <div class="absolute -bottom-4 -right-4 w-20 h-20 bg-secondary rounded-lg z-[-1]"></div>
+                    <div class="absolute -top-4 -left-4 w-20 h-20 bg-primary/30 rounded-lg z-[-1]"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="py-20 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="font-montserrat font-bold text-[clamp(2rem,4vw,3rem)] text-primary mb-4">My Tech Stack</h2>
+                <p class="text-dark-gray text-lg max-w-3xl mx-auto">I specialize in frontend development with a focus on creating responsive, accessible, and performant web applications.</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Skill Card 1 -->
+                <div class="bg-white rounded-xl shadow-lg p-6 hover:shadow-xl transition-shadow duration-300 border border-gray-100">
+                    <div class="w-14 h-14 bg-primary/10 rounded-lg flex items-center justify-center mb-6">
+                        <i class="fa fa-code text-primary text-2xl"></i>
+                    </div>
+                    <h3 class="font-montserrat font-bold text-xl mb-3">Frontend Development</h3>
+                    <p class="text-dark-gray">Creating responsive and interactive user interfaces with modern frameworks and libraries.</p>
+                    <div class="mt-6 flex flex-wrap gap-2">
+                        <span class="px-3 py-1 bg-primary/10 text-primary text-xs rounded-full">HTML5</span>
+                        <span class="px-3 py-1 bg-primary/10 text-primary text-xs rounded-full">CSS3</span>
+                        <span class="px-3 py-1 bg-primary/10 text-primary text-xs rounded-full">JavaScript</span>
+                        <span class="px-3 py-1 bg-primary/10 text-primary text-xs rounded-full">React</span>
+                    </div>
+                </div>
+                
+                <!-- Skill Card 2 -->
+                <div class="bg-white rounded-xl shadow-lg p-6 hover:shadow-xl transition-shadow duration-300 border border-gray-100">
+                    <div class="w-14 h-14 bg-primary/10 rounded-lg flex items-center justify-center mb-6">
+                        <i class="fa fa-paint-brush text-primary text-2xl"></i>
+                    </div>
+                    <h3 class="font-montserrat font-bold text-xl mb-3">UI/UX Design</h3>
+                    <p class="text-dark-gray">Crafting beautiful and intuitive user experiences with a focus on usability and accessibility.</p>
+                    <div class="mt-6 flex flex-wrap gap-2">
+                        <span class="px-3 py-1 bg-primary/10 text-primary text-xs rounded-full">Figma</span>
+                        <span class="px-3 py-1 bg-primary/10 text-primary text-xs rounded-full">Adobe XD</span>
+                        <span class="px-3 py-1 bg-primary/10 text-primary text-xs rounded-full">Wireframing</span>
+                        <span class="px-3 py-1 bg-primary/10 text-primary text-xs rounded-full">Prototyping</span>
+                    </div>
+                </div>
+                
+                <!-- Skill Card 3 -->
+                <div class="bg-white rounded-xl shadow-lg p-6 hover:shadow-xl transition-shadow duration-300 border border-gray-100">
+                    <div class="w-14 h-14 bg-primary/10 rounded-lg flex items-center justify-center mb-6">
+                        <i class="fa fa-mobile text-primary text-2xl"></i>
+                    </div>
+                    <h3 class="font-montserrat font-bold text-xl mb-3">Mobile Development</h3>
+                    <p class="text-dark-gray">Building cross-platform mobile applications that provide native-like experiences.</p>
+                    <div class="mt-6 flex flex-wrap gap-2">
+                        <span class="px-3 py-1 bg-primary/10 text-primary text-xs rounded-full">React Native</span>
+                        <span class="px-3 py-1 bg-primary/10 text-primary text-xs rounded-full">Flutter</span>
+                        <span class="px-3 py-1 bg-primary/10 text-primary text-xs rounded-full">Mobile UI</span>
+                        <span class="px-3 py-1 bg-primary/10 text-primary text-xs rounded-full">Responsive</span>
+                    </div>
+                </div>
+                
+                <!-- Skill Card 4 -->
+                <div class="bg-white rounded-xl shadow-lg p-6 hover:shadow-xl transition-shadow duration-300 border border-gray-100">
+                    <div class="w-14 h-14 bg-primary/10 rounded-lg flex items-center justify-center mb-6">
+                        <i class="fa fa-cogs text-primary text-2xl"></i>
+                    </div>
+                    <h3 class="font-montserrat font-bold text-xl mb-3">DevOps</h3>
+                    <p class="text-dark-gray">Implementing CI/CD pipelines and optimizing deployment processes for web applications.</p>
+                    <div class="mt-6 flex flex-wrap gap-2">
+                        <span class="px-3 py-1 bg-primary/10 text-primary text-xs rounded-full">Git</span>
+                        <span class="px-3 py-1 bg-primary/10 text-primary text-xs rounded-full">GitHub Actions</span>
+                        <span class="px-3 py-1 bg-primary/10 text-primary text-xs rounded-full">Docker</span>
+                        <span class="px-3 py-1 bg-primary/10 text-primary text-xs rounded-full">AWS</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="py-20 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="font-montserrat font-bold text-[clamp(2rem,4vw,3rem)] text-primary mb-4">My Projects</h2>
+                <p class="text-dark-gray text-lg max-w-3xl mx-auto">Explore some of my recent work showcasing my frontend development skills and creativity.</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Project Card 1 -->
+                <div class="bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+                    <div class="relative">
+                        <img src="https://picsum.photos/600/400?random=1" alt="E-commerce Website Project" class="w-full h-56 object-cover">
+                        <div class="absolute top-4 right-4 bg-primary text-white text-xs font-medium px-3 py-1 rounded-full">React</div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="font-montserrat font-bold text-xl mb-2">Modern E-commerce Platform</h3>
+                        <p class="text-dark-gray mb-4">A fully responsive e-commerce website with product catalog, shopping cart, and payment integration.</p>
+                        <div class="flex flex-wrap gap-2 mb-6">
+                            <span class="px-3 py-1 bg-gray-100 text-dark-gray text-xs rounded-full">React</span>
+                            <span class="px-3 py-1 bg-gray-100 text-dark-gray text-xs rounded-full">Redux</span>
+                            <span class="px-3 py-1 bg-gray-100 text-dark-gray text-xs rounded-full">Tailwind CSS</span>
+                            <span class="px-3 py-1 bg-gray-100 text-dark-gray text-xs rounded-full">Firebase</span>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <a href="#" class="text-primary font-medium hover:underline">View Project</a>
+                            <a href="#" class="text-dark-gray hover:text-primary transition-colors">
+                                <i class="fa fa-github text-xl"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Project Card 2 -->
+                <div class="bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+                    <div class="relative">
+                        <img src="https://picsum.photos/600/400?random=2" alt="Dashboard UI Project" class="w-full h-56 object-cover">
+                        <div class="absolute top-4 right-4 bg-primary text-white text-xs font-medium px-3 py-1 rounded-full">Vue.js</div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="font-montserrat font-bold text-xl mb-2">Analytics Dashboard</h3>
+                        <p class="text-dark-gray mb-4">A data visualization dashboard with real-time analytics and interactive charts for business insights.</p>
+                        <div class="flex flex-wrap gap-2 mb-6">
+                            <span class="px-3 py-1 bg-gray-100 text-dark-gray text-xs rounded-full">Vue.js</span>
+                            <span class="px-3 py-1 bg-gray-100 text-dark-gray text-xs rounded-full">Chart.js</span>
+                            <span class="px-3 py-1 bg-gray-100 text-dark-gray text-xs rounded-full">Sass</span>
+                            <span class="px-3 py-1 bg-gray-100 text-dark-gray text-xs rounded-full">Node.js</span>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <a href="#" class="text-primary font-medium hover:underline">View Project</a>
+                            <a href="#" class="text-dark-gray hover:text-primary transition-colors">
+                                <i class="fa fa-github text-xl"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Project Card 3 -->
+                <div class="bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+                    <div class="relative">
+                        <img src="https://picsum.photos/600/400?random=3" alt="Travel App Project" class="w-full h-56 object-cover">
+                        <div class="absolute top-4 right-4 bg-primary text-white text-xs font-medium px-3 py-1 rounded-full">React Native</div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="font-montserrat font-bold text-xl mb-2">Travel Planner App</h3>
+                        <p class="text-dark-gray mb-4">A mobile application for planning trips, discovering destinations, and booking accommodations.</p>
+                        <div class="flex flex-wrap gap-2 mb-6">
+                            <span class="px-3 py-1 bg-gray-100 text-dark-gray text-xs rounded-full">React Native</span>
+                            <span class="px-3 py-1 bg-gray-100 text-dark-gray text-xs rounded-full">Expo</span>
+                            <span class="px-3 py-1 bg-gray-100 text-dark-gray text-xs rounded-full">Firebase</span>
+                            <span class="px-3 py-1 bg-gray-100 text-dark-gray text-xs rounded-full">Google Maps</span>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <a href="#" class="text-primary font-medium hover:underline">View Project</a>
+                            <a href="#" class="text-dark-gray hover:text-primary transition-colors">
+                                <i class="fa fa-github text-xl"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-12">
+                <a href="#" class="inline-block bg-white hover:bg-gray-50 text-primary border border-primary font-medium py-3 px-8 rounded-lg transition-all duration-300 transform hover:scale-105 shadow-sm">
+                    View All Projects
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Blog Section -->
+    <section id="blog" class="py-20 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="font-montserrat font-bold text-[clamp(2rem,4vw,3rem)] text-primary mb-4">Latest Articles</h2>
+                <p class="text-dark-gray text-lg max-w-3xl mx-auto">Explore my latest blog posts where I share insights, tips, and tutorials about frontend development.</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <!-- Blog Post 1 -->
+                <div class="bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300">
+                    <div class="relative">
+                        <img src="https://picsum.photos/600/400?random=4" alt="React Performance Optimization Techniques" class="w-full h-64 object-cover">
+                        <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-6">
+                            <div class="flex items-center space-x-2 mb-2">
+                                <span class="text-white text-xs bg-primary px-3 py-1 rounded-full">React</span>
+                                <span class="text-white text-xs"><i class="fa fa-calendar-o mr-1"></i> June 15, 2025</span>
+                            </div>
+                            <h3 class="font-montserrat font-bold text-xl text-white">Top 10 React Performance Optimization Techniques</h3>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <p class="text-dark-gray mb-4">Learn how to optimize your React applications for better performance and user experience with these essential techniques.</p>
+                        <a href="#" class="inline-flex items-center text-primary font-medium hover:underline">
+                            Read More <i class="fa fa-long-arrow-right ml-2"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Blog Post 2 -->
+                <div class="bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300">
+                    <div class="relative">
+                        <img src="https://picsum.photos/600/400?random=5" alt="Tailwind CSS Best Practices" class="w-full h-64 object-cover">
+                        <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-6">
+                            <div class="flex items-center space-x-2 mb-2">
+                                <span class="text-white text-xs bg-primary px-3 py-1 rounded-full">Tailwind CSS</span>
+                                <span class="text-white text-xs"><i class="fa fa-calendar-o mr-1"></i> May 28, 2025</span>
+                            </div>
+                            <h3 class="font-montserrat font-bold text-xl text-white">Tailwind CSS Best Practices for Modern Web Development</h3>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <p class="text-dark-gray mb-4">Discover the best practices for using Tailwind CSS effectively in your projects to create clean, maintainable, and responsive UI.</p>
+                        <a href="#" class="inline-flex items-center text-primary font-medium hover:underline">
+                            Read More <i class="fa fa-long-arrow-right ml-2"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-12">
+                <a href="#" class="inline-block bg-white hover:bg-gray-50 text-primary border border-primary font-medium py-3 px-8 rounded-lg transition-all duration-300 transform hover:scale-105 shadow-sm">
+                    Browse All Articles
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-primary text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
+                <!-- Contact Info -->
+                <div>
+                    <h3 class="font-montserrat font-bold text-xl mb-4">Contact Me</h3>
+                    <ul class="space-y-3">
+                        <li class="flex items-center">
+                            <i class="fa fa-envelope-o mr-3 text-secondary"></i>
+                            <a href="mailto:john@example.com" class="hover:text-secondary transition-colors">john@example.com</a>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fa fa-phone mr-3 text-secondary"></i>
+                            <a href="tel:+1234567890" class="hover:text-secondary transition-colors">+1 (234) 567-890</a>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fa fa-map-marker mr-3 text-secondary"></i>
+                            <span>San Francisco, California</span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <!-- Quick Links -->
+                <div>
+                    <h3 class="font-montserrat font-bold text-xl mb-4">Quick Links</h3>
+                    <ul class="space-y-3">
+                        <li><a href="#hero" class="hover:text-secondary transition-colors">Home</a></li>
+                        <li><a href="#skills" class="hover:text-secondary transition-colors">Skills</a></li>
+                        <li><a href="#projects" class="hover:text-secondary transition-colors">Projects</a></li>
+                        <li><a href="#blog" class="hover:text-secondary transition-colors">Blog</a></li>
+                        <li><a href="#" class="hover:text-secondary transition-colors">Resume</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Social Media -->
+                <div>
+                    <h3 class="font-montserrat font-bold text-xl mb-4">Connect With Me</h3>
+                    <p class="mb-4">Follow me on social media to stay updated with my latest projects and insights.</p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-secondary transition-colors">
+                            <i class="fa fa-twitter text-white"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-secondary transition-colors">
+                            <i class="fa fa-linkedin text-white"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-secondary transition-colors">
+                            <i class="fa fa-github text-white"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-secondary transition-colors">
+                            <i class="fa fa-dribbble text-white"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="pt-8 border-t border-white/10 text-center text-white/70">
+                <p>&copy; 2025 John Doe. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        // Mobile menu toggle
+        const menuBtn = document.getElementById('menuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+        
+        menuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+        
+        // Navbar scroll effect
+        const navbar = document.getElementById('navbar');
+        
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                navbar.classList.add('py-2', 'shadow-md');
+                navbar.classList.remove('py-4');
+            } else {
+                navbar.classList.add('py-4');
+                navbar.classList.remove('py-2', 'shadow-md');
+            }
+        });
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                    
+                    // Close mobile menu after clicking a link
+                    if (!mobileMenu.classList.contains('hidden')) {
+                        mobileMenu.classList.add('hidden');
+                    }
+                }
+            });
+        });
+        
+        // Lazy loading for images
+        document.addEventListener("DOMContentLoaded", function() {
+            const lazyImages = [].slice.call(document.querySelectorAll("img"));
+            
+            if ("IntersectionObserver" in window) {
+                const imageObserver = new IntersectionObserver(function(entries, observer) {
+                    entries.forEach(function(entry) {
+                        if (entry.isIntersecting) {
+                            const image = entry.target;
+                            image.classList.add("fade-in");
+                            imageObserver.unobserve(image);
+                        }
+                    });
+                });
+                
+                lazyImages.forEach(function(image) {
+                    imageObserver.observe(image);
+                });
+            }
+        });
+    </script>
+</body>
+</html>
